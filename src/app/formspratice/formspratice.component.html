@@ -1,0 +1,137 @@
+<div class="container">
+    <div class="row custom-wrapper">
+        <div class="col-md-12">
+
+            <!-- Form starts -->
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+                <div class="group-gap">
+
+                    <!-- Full name -->
+                    <div formGroupName="fullName">
+                        <div class="mb-3">
+                            <label [ngClass]="{'error': submitted && myForm.fullName.controls.firstName.errors}">
+                                First name</label>
+                            <input type="text" class="form-control" formControlName="firstName"
+                                [ngClass]="{'error': submitted && myForm.fullName.controls.firstName.errors}">
+                            <!-- error block -->
+                            <div class="invalid-feedback"
+                                *ngIf="submitted && myForm.fullName.controls.firstName.errors?.required">
+                                <sup>*</sup>Enter your name
+                            </div>
+                            <div class="invalid-feedback"
+                                *ngIf="submitted && myForm.fullName.controls.firstName.errors?.minlength">
+                                <sup>*</sup>Name must be 2 characters long
+                            </div>
+                            <div class="invalid-feedback"
+                                *ngIf="submitted && myForm.fullName.controls.firstName.errors?.pattern">
+                                <sup>*</sup>No special charcter allowed
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label [ngClass]="{'error': submitted && myForm.fullName.controls.lastName.errors}">
+                                Last name</label>
+                            <input type="text" class="form-control" formControlName="lastName"
+                                [ngClass]="{'error': submitted && myForm.fullName.controls.lastName.errors}">
+                            <!-- error block -->
+                            <div class="invalid-feedback"
+                                *ngIf="submitted && myForm.fullName.controls.lastName.errors?.required">
+                                <sup>*</sup>Please enter your surname
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label [ngClass]="{'error': submitted && myForm.phoneNumber.errors}">
+                            phone Number</label>
+                        <input type="number" class="form-control" formControlName="phoneNumber">
+
+                        <div class="invalid-feedback" *ngIf="submitted && myForm.phoneNumber.errors?.required">
+                            <sup>*</sup>please enter valid phone number
+                        </div>
+                    </div>
+
+                    <div formGroupName="address">
+                        <div class="mb-3">
+                            <label>permanent Address</label>
+                            <textarea type="textarea" formControlName="permanentAddress"
+                                class="form-control"></textarea>
+                            <p>max 120 charcters</p>
+                            <div class="invalid-feedback"
+                                *ngIf="submitted && myForm.address.controls.permanentAddress.errors?.required">
+                                <sup>*</sup>please enter valid address
+                            </div>
+                            <div class="invalid-feedback"
+                                *ngIf="submitted && myForm.address.controls.permanentAddress.errors?.minlength">
+                                <sup>*</sup>please enter min length 5 alphabets
+                            </div>
+                            <div class="invalid-feedback"
+                                *ngIf="submitted && myForm.address.controls.permanentAddress.errors?.maxlength">
+                                <sup>*</sup>please enter not exceeding 120 characters
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label>temporary Address</label>
+                            <textarea type="textarea" formControlName="temporaryAddress"
+                                class="form-control"></textarea>
+                            <p>max 120 charcters</p>
+                            <div class="invalid-feedback"
+                                *ngIf="submitted && myForm.address.controls.temporaryAddress.errors?.required">
+                                <sup>*</sup>please enter valid address
+                            </div>
+                            <div class="invalid-feedback"
+                                *ngIf="submitted && myForm.address.controls.temporaryAddress.errors?.minlength">
+                                <sup>*</sup>please enter min length 5 alphabets
+                            </div>
+                            <div class="invalid-feedback"
+                                *ngIf="submitted && myForm.address.controls.temporaryAddress.errors?.maxlength">
+                                <sup>*</sup>please enter not exceeding 120 characters
+                            </div>
+                        </div>
+                    </div>
+
+                    <div formGroupName="password">
+                        <div class="mb-3">
+                            <label>password</label>
+                            <input type="text" formControlName="password" class="form-control" maxlength="8">
+                            <div class="invalid-feedback"
+                                *ngIf="submitted && myForm.password.controls.password.errors?.required">
+                                <sup>*</sup>password is required
+                            </div>
+                            <div class="invalid-feedback"
+                                *ngIf="myForm.password.controls.password.touched && myForm.password.controls.password.errors?.minlength">
+                                <sup>*</sup>password must be atleast 6 charcters
+                            </div>
+                            <!-- <div class="invalid-feedback"
+                                *ngIf="submitted && myForm.password.controls.password.errors?.maxlength">
+                                <sup>*</sup>password must be max 8 charcters
+                            </div> -->
+                        </div>
+                        <div class="mb-3">
+                            <label>confirm password</label>
+                            <input type="text" formControlName="confirmPassword" class="form-control" maxlength="8">
+                            <div *ngIf="submitted && myForm.password.controls.confirmPassword.errors?.required">
+                                <sup>*</sup>confirm password is required
+                            </div>
+                            <div *ngIf="myForm.password.controls.confirmPassword.touched && myForm.password.controls.confirmPassword.errors?.minlength">
+                                <sup>*</sup>confirm password must be atleast 6 charcters
+                            </div>
+                            <!-- <div *ngIf="submitted && myForm.password.controls.confirmPassword.errors?.maxlength">
+                                <sup>*</sup>confirm password must be max 8 charcters
+                            </div> -->
+                            <div *ngIf="myForm.password.controls.confirmPassword.valid && myForm.password.controls.confirmPassword.touched && myForm.password.controls.confirmPassword.value != myForm.password.controls.password.value">
+                                <sup>*</sup>mismatch error
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-danger btn-lg btn-block">Create</button>
+                </div>
+
+            </form><!-- Form ends -->
+
+        </div>
+    </div>
+</div>

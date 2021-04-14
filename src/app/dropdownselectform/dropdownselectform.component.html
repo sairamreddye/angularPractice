@@ -1,0 +1,308 @@
+
+
+
+
+
+
+
+
+<!-- <div class="content">
+    <div class="btn-sec clear-both row">
+        <div class="col-sm-5">
+          <label for= "additional_collateral_details">Collateral Type:</label>&nbsp;&nbsp;
+            <select id="select_main_button" class="dropdown_individual" (change)="select_main_button($event)">
+                <option value="Agriculture" >Agriculture</option>
+                <option value="FD" >FD</option>
+                <option  value="Gold_Loan" >Gold Loan</option>
+                <option value="Property" >Property</option>
+                
+            </select>
+        </div>
+    </div>
+<!-- 
+  <form class="multisteps-form__form" [formGroup]="AdditionalCollateralDetailsForm">
+
+     
+
+      <div id="additional_collateral_details" formGroupName="Agriculture"
+          *ngIf="type == 'Agriculture'">
+          <div class="row">
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="Survey_No">Survey No. / Patta No.</label>
+                  <input type="text" class="form-control" name="Survey_No"
+                      id="Survey_No" formControlName="Survey_No"  [ngClass]="{ 'is-invalid': f.Survey_No.touched && f.Survey_No.errors }" />
+                      <div *ngIf="f.Survey_No.touched && f.Survey_No.errors" class="invalid-feedback">
+                        <div *ngIf="f.Survey_No.errors.required">First Name is required</div>
+                    </div>
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                <label for="Land_in_Acres">Land in Acres</label>
+                <input type="text" class="form-control" name="Land_in_Acres"
+                    id="Land_in_Acres" formControlName="Land_in_Acres" />
+            </div>
+            <div class="form-group col-sm-6 col-md-4 col-lg-3">
+              <label for="Property_owner">Property Owner</label>
+              <input type="text" class="form-control" name="Property_owner"
+                  id="Property_owner" formControlName="Property_owner" />
+          </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="Related_to_Primary_Applicant">Related to Primary Applicant</label>
+                  <select class="form-control" id="Related_to_Primary_Applicant" name="Related_to_Primary_Applicant"
+                      formControlName="Related_to_Primary_Applicant">
+                      <option value="">Select</option>
+                  </select>
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="Market_Value">Market Value / Acre</label>
+                  <input type="text" class="form-control" name="Market_Value"
+                      id="Market_Value" formControlName="Market_Value" />
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="Total_Land_Market_Value">Total Land Market Value</label>
+                  <input type="text" class="form-control" name="Total_Land_Market_Value" id="Total_Land_Market_Value"
+                      formControlName="Total_Land_Market_Value" />
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="Guide_line_value">Guide line  value / Acre</label>
+                  <input type="text" class="form-control" name="Guide_line_value" id="Guide_line_value"
+                      formControlName="Guide_line_value" />
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="Total_Land_Guideline_Value">Total Land Guideline Value</label>
+                  <input type="text" class="form-control" name="Total_Land_Guideline_Value"
+                      id="Total_Land_Guideline_Value" formControlName="Total_Land_Guideline_Value" />
+              </div>
+               <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="Jewel_owner">Jewel  Owner</label>
+                  <input type="text" class="form-control" name="Jewel_owner" id="Jewel_owner"
+                      formControlName="Jewel_owner" />
+              </div>
+
+          </div>
+
+      </div>
+     
+
+     
+  <div id="FD" formGroupName="FD"
+      *ngIf="type == 'FD'">
+          <br /> <br />
+          <div class="row">
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="FD_Account_number">FD Account number</label>
+                  <input type="text" class="form-control" name="FD_Account_number" id="FD_Account_number"
+                      formControlName="FD_Account_number" />
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label
+                      for="FD_Name">FD Name</label>
+                  <input type="text" class="form-control" name="FD_Name" id="FD_Name"
+                      formControlName="FD_Name" />
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="FD_Value">FD Value</label>
+                  <input type="text" class="form-control" name="FD_Value" id="FD_Value"
+                      formControlName="FD_Value" />
+              </div>
+               
+
+          </div>
+      </div>
+    
+
+        <div id="Gold_Loan" formGroupName="Gold_Loan"
+        *ngIf="type == 'Gold_Loan'">
+          <br /> <br />
+         
+          <div class="row">
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="Gold_in_gms">Gold in gms (net weight - excluding stones)</label>
+                  <input type="text" class="form-control" name="Gold_in_gms" id="Gold_in_gms"
+                      formControlName="Gold_in_gms" />
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="Value_as_of_today_per_gram">Value as of today per gram</label>
+                  <input type="text" class="form-control" name="Value_as_of_today_per_gram" id="Value_as_of_today_per_gram" formControlName="Value_as_of_today_per_gram" />
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="Total_Value">Total Value</label>
+                  <input type="text" class="form-control" name="Total_Value" id="Total_Value" formControlName="Total_Value" />
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                <label for="Purity">Purity</label>
+                <input type="text" class="form-control" name="Purity" id="Purity" formControlName="Purity" />
+            </div>
+
+          </div>
+      </div>
+      
+      <div id="Property" formGroupName="Property"
+      *ngIf="type == 'Property'">
+          <br /> <br />
+          
+          <div class="row">
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="Property_Type">Property Type</label>
+              
+                  <select class="form-control" id="Property_Type" name="Property_Type" formControlName="Property_Type">
+                  <option value="">Select</option>
+              </select>
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="property_address">Property Address</label>
+                  <input type="text" class="form-control" name="property_address" id="property_address" formControlName="property_address" />
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                  <label for="Property_owner">Property Owner</label>
+                  <input type="text" class="form-control" name="Property_owner" id="Property_owner" formControlName="Property_owner" />
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-3">
+                <label for="Total_Land_Area">Total Land Area</label>
+                <input type="text" class="form-control" name="Total_Land_Area" id="Total_Land_Area" formControlName="Total_Land_Area" />
+            </div>
+            <div class="form-group col-sm-6 col-md-4 col-lg-3">
+              <label for="Total_Built_up_Area">Total Built up Area</label>
+              <input type="text" class="form-control" name="Total_Built_up_Area" id="Total_Built_up_Area" formControlName="Total_Built_up_Area" />
+          </div>
+          <div class="form-group col-sm-6 col-md-4 col-lg-3">
+            <label for="Market_Value">Market Value / SF</label>
+            <input type="text" class="form-control" name="Market_Value" id="Market_Value" formControlName="Market_Value" />
+        </div>
+        <div class="form-group col-sm-6 col-md-4 col-lg-3">
+          <label for="Total_Market_Value">Total Market Value</label>
+          <input type="text" class="form-control" name="Total_Market_Value" id="Total_Market_Value" formControlName="Total_Market_Value" />
+      </div>
+      <div class="form-group col-sm-6 col-md-4 col-lg-3">
+        <label for="Guide_line_value">Guide line  value / SF</label>
+        <input type="text" class="form-control" name="Guide_line_value" id="Guide_line_value" formControlName="Guide_line_value" />
+    </div>
+    <div class="form-group col-sm-6 col-md-4 col-lg-3">
+      <label for="Total_Guideline_Value">Total Guideline Value</label>
+      <input type="text" class="form-control" name="Total_Guideline_Value" id="Total_Guideline_Value" formControlName="Total_Guideline_Value" />
+  </div>
+          </div>
+      </div> -->
+  <!-- </form>
+</div> --> 
+
+<!-- <div class="btn-sec clear-both row cst_btm_btns mar-bot-btn text-right">
+  <div class="col-sm-12">
+      <button class="btn btn-primary cus-btn-sty" type="button" [routerLink]="['../deviations']">Back</button> 
+      <p class="btn btn-primary save cus-btn-sty"> Save </p>
+  </div>
+</div> -->
+
+
+    <div class="btn-sec clear-both row">
+        <div class="col-sm-5">
+          <label for= "additional_collateral_details">Collateral Type:</label>&nbsp;&nbsp;
+            <select id="select_main_button" class="dropdown_individual" (change)="select_main_button($event)">
+                <option value="Agriculture" >Agriculture</option>
+                <option value="FD" >FD</option>
+            </select>
+        </div>
+    </div>
+
+
+    <!-- <ng-container *ngIf="type == 'Agriculture'"> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <!-- <h3>Angular 6 Reactive Form Validation</h3> -->
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                        <!-- <div formGroupName="Agriculture" *ngIf="type == 'Agriculture'"> -->
+                            <div class="form-group"  *ngIf="type == 'Agriculture'">
+                                <label>Survey_No</label>
+                                <input type="text" formControlName="Survey_No" class="form-control" [ngClass]="{ 'is-invalid': f.Survey_No.touched && f.Survey_No.errors }" />
+                                <div *ngIf="f.Survey_No.touched && f.Survey_No.errors" class="invalid-feedback">
+                                    <div *ngIf="f.Survey_No.errors.required">Survey_No is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group"  *ngIf="type == 'Agriculture'">
+                                <label>Land_in_Acres</label>
+                                <input type="text" formControlName="Land_in_Acres" class="form-control" [ngClass]="{ 'is-invalid': f.Land_in_Acres.touched && f.Land_in_Acres.errors }" />
+                                <div *ngIf="f.Land_in_Acres.touched && f.Land_in_Acres.errors" class="invalid-feedback">
+                                    <div *ngIf="f.Land_in_Acres.errors.required">Land_in_Acres is required</div>
+                                </div>
+                            </div>
+                          <!-- </div> -->
+
+
+                          <!-- <div formGroupName="FD" *ngIf="type == 'FD'"> -->
+                            <div class="form-group" *ngIf="type == 'FD'">
+                                <label>FD_Account_number</label>
+                                <input type="text" formControlName="FD_Account_number" class="form-control" [ngClass]="{ 'is-invalid': f.FD_Account_number.touched && f.FD_Account_number.errors }" />
+                                <div *ngIf="f.FD_Account_number.touched && f.FD_Account_number.errors" class="invalid-feedback">
+                                    <div *ngIf="f.FD_Account_number.errors.required">FD_Account_number is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group" *ngIf="type == 'FD'">
+                                <label>FD_Name</label>
+                                <input type="text" formControlName="FD_Name" class="form-control" [ngClass]="{ 'is-invalid': f.FD_Name.touched && f.FD_Name.errors }" />
+                                <div *ngIf="f.FD_Name.touched && f.FD_Name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.FD_Name.errors.required">FD_Name is required</div>
+                                </div>
+                            </div>
+                          <!-- </div> -->
+
+                        <div class="form-group">
+                            <button class="btn btn-primary" [disabled]="!f.valid">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+  
+    <!-- </ng-container>
+    <ng-container *ngIf="type == 'FD'"> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <!-- <h3>Angular 6 Reactive Form Validation</h3> -->
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"  *ngIf="type == 'FD'">
+
+                         
+
+                        <!-- <div class="form-group">
+                            <button class="btn btn-primary">Register</button>
+                        </div> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    <!-- </ng-container> -->
+
+
+
+    <!-- <div class="form-group">
+        <label>First Name</label>
+        <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': f.firstName.touched && f.firstName.errors }" />
+        <div *ngIf="f.firstName.touched && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': f.lastName.touched && f.lastName.errors }" />
+        <div *ngIf="f.lastName.touched && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
+        <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }" />
+        <div *ngIf="f.password.touched && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+    </div> -->

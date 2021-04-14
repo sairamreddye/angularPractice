@@ -1,0 +1,26 @@
+<div class="container" *ngIf="bool === false;else nousers">
+    <h1>Sign In</h1>
+    <form (ngSubmit)="onSubmit()"
+          [formGroup]="form"
+          novalidate>
+      <app-login  formControlName="login"></app-login>
+      <app-signup formControlName="signup"></app-signup>
+
+      <button mat-raised-button
+              type="submit"
+              color="primary">Sign In</button>
+    </form>
+</div>
+<ng-template #nousers>
+    <div class="container">
+    <h1>Log In</h1>
+    <form (ngSubmit)="onSubmit()"
+    [formGroup]="form"
+    novalidate>
+    <app-login  formControlName="login"></app-login>
+    <button mat-raised-button
+        type="submit"
+        color="primary">LogIn</button>
+    </form>
+    </div>
+  </ng-template>
